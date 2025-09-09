@@ -12,20 +12,20 @@ As a Student, I want to view my grades for assignments and exams so that I can t
 
 As a Student, I want to access a calendar so that I can view upcoming assignments, deadlines, and events by day/week/month.
 
-As a Student, I want to access an inbox so that I can communicate with teachers and other Students.
+As a Student, I want to access an inbox so that I can communicate with Instructors and other Students.
 
-# Teacher User Stories:-
+# Instructor User Stories:-
 
-As a Teacher, I want to login to my LLM so that I can access my teaching materials and courses.
+As a Instructor, I want to login to my LLM so that I can access my teaching materials and courses.
 
-As a Teacher, I want to view a dashboard with all my courses so that I can manage them easily.
+As a Instructor, I want to view a dashboard with all my courses so that I can manage them easily.
 
-As a Teacher, I want to create modules and assignments within each course so that students can access structured learning content.
+As a Instructor, I want to create modules and assignments within each course so that students can access structured learning content.
 
-As a Teacher, I want to grade assignments so that I can provide feedback and scores to students.
+As a Instructor, I want to grade assignments so that I can provide feedback and scores to students.
 
-As a Teacher, I want to view a list of students enrolled in each course so that I can track participation.
+As a Instructor, I want to view a list of students enrolled in each course so that I can track participation.
 
-As a Teacher, I want to access a calendar so that I can manage deadlines, class schedules, and events.
+As a Instructor, I want to access a calendar so that I can manage deadlines, class schedules, and events.
 
-As a Teacher, I want to use an inbox so that I can communicate with students and other faculty members.
+As a Instructor, I want to use an inbox so that I can communicate with students and other faculty members.
