@@ -1,6 +1,6 @@
 # Student User Stories:-
 
-As a Student, I want to login to my LLM so that I can access my courses securely.
+As a Student, I want to login to my LMS so that I can access my courses securely.
 
 As a Student, I want to view a dashboard that lists all my enrolled courses so that I can navigate between them easily.
 
@@ -16,7 +16,7 @@ As a Student, I want to access an inbox so that I can communicate with Instructo
 
 # Instructor User Stories:-
 
-As a Instructor, I want to login to my LLM so that I can access my teaching materials and courses.
+As a Instructor, I want to login to my LMS so that I can access my teaching materials and courses.
 
 As a Instructor, I want to view a dashboard with all my courses so that I can manage them easily.
 
