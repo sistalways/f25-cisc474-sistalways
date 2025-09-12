@@ -1,18 +1,29 @@
-import Image, { type ImageProps } from "next/image";
-import { Button } from "@repo/ui/button";
-import styles from "./page.module.css";
+import React from "react";
+import Link from "next/link";
+import "./globals.css"
 
 export default function Login() {
     return (
-        <div className={styles.page}>
-            <main className={styles.main}>
+        <div>
+            <main>
                 <h1>Login with your Credentials</h1>
-                <form className={styles.form}>
-                    <label htmlFor="username">Username:</label>
-                    <input type="text" id="username" name="username" required />
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" name="password" required />
-                    <Button appName={""}>Login</Button>
+                <form style={{display: "flex" ,alignItems: "center",flexDirection:"column"}}>
+                    <input type="text"
+                    className="usernameInp"
+                    placeholder="Enter Username:" />
+
+                    <input type="password"
+                    className="passwordInp"
+                    placeholder="Enter Password:" />
+
+
+                    <Link 
+                    href="/dashboard"
+                    className="Login-Button"
+                    aria-label="Login"
+                    > 
+                    Login
+                    </Link>
                 </form>
             </main>
         </div>
