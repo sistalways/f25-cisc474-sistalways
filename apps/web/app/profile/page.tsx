@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import "./globals.css"
+import "./profile.css"
 
 export default function Profile() {
     return (

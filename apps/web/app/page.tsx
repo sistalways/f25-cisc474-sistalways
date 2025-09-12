@@ -4,16 +4,16 @@ import "./globals.css"
 
 export default function Login() {
     return (
-        <div>
+        
             <main>
                 <h1>Login with your Credentials</h1>
                 <form style={{display: "flex" ,alignItems: "center",flexDirection:"column"}}>
                     <input type="text"
-                    className="usernameInp"
+                    className="LoginInp"
                     placeholder="Enter Username:" />
 
                     <input type="password"
-                    className="passwordInp"
+                    className="LoginInp"
                     placeholder="Enter Password:" />
 
 
@@ -26,7 +26,6 @@ export default function Login() {
                     </Link>
                 </form>
             </main>
-        </div>
         
     );
 }
