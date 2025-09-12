@@ -12,7 +12,7 @@ export default function Calendar() {
                 <Link href="/dashboard" className="nav-link">Dashbaord</Link>
                 <Link href="/courses" className="nav-link">Courses</Link>
                 <Link href="/calendar" className="nav-link">Calendar</Link>
-                <Link href="/settings" className="nav-link">Settings</Link> 
+                
                 <Link href="/profile" className="nav-link">Profile</Link> 
                 <Link href="/inbox" className="nav-link">Inbox</Link> 
             </main>
