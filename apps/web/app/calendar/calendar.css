@@ -16,6 +16,7 @@ body {
     flex-direction: column;
     padding-top: 40px;
   }
+
   
   /* Sidebar links */
   .nav-link {
@@ -41,4 +42,12 @@ body {
     color: white;
     font-size: 24px;
   }
-  
+  .logout {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 12px 20px;
+}
