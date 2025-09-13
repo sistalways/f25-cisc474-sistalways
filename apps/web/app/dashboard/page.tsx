@@ -6,7 +6,7 @@ export default function Dashboard() {
     return (
         <div>
             <main>
-            <h1>Dashboard</h1>
+            <h1 style={{alignContent:"center"}}>Dashboard</h1>
 
             
                 <Link href="/dashboard" className="nav-link">Dashbaord</Link>
