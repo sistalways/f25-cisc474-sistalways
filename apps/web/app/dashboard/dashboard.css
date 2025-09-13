@@ -4,15 +4,35 @@ body {
     background-color: #6f6262; /* dark gray background */
     color: white;
   }
-.nav-link {
+  .sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 80px;          /* adjust to make it wider/narrower */
-    height: 100vh;        /* full height */
+    width: 200px;              /* wider to fit text links */
+    height: 100vh;
     background-color: #c06565; /* muted red */
+    display: flex;
+    flex-direction: column;
+    align-items: center;       /* center links horizontally */
+    padding-top: 40px;         /* spacing from the top */
   }
   
+  /* Navigation links inside sidebar */
+  .sidebar .nav-link {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+    transition: 0.3s;
+  }
+  
+  .sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+  }
   /* Main content */
   
   .main-content {
@@ -27,18 +47,3 @@ body {
     margin-bottom: 40px;
   }
   
-  /* Course cards */
-  .card {
-    display: inline-block;
-    width: 180px;
-    height: 120px;
-    margin: 20px;
-    background-color: #d3d3d3; /* light gray */
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  }
-  
-  .card p {
-    margin-top: 8px;
-    color: white;
-  }
