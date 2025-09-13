@@ -1,49 +1,41 @@
-body {
+/* Container holding sidebar + main */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #6f6262; /* dark gray background */
-    color: white;
   }
+  
+  /* Sidebar */
   .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;              /* wider to fit text links */
-    height: 100vh;
+    width: 200px;
     background-color: #c06565; /* muted red */
     display: flex;
     flex-direction: column;
-    align-items: center;       /* center links horizontally */
-    padding-top: 40px;         /* spacing from the top */
+    padding-top: 40px;
   }
   
-  /* Navigation links inside sidebar */
+  /* Sidebar links */
   .nav-link {
-    display: block;
-    width: 100%;
     padding: 12px 20px;
     color: white;
     text-decoration: none;
     font-size: 16px;
-    text-align: center;
-    transition: 0.3s;
+    transition: background 0.3s ease;
   }
   
   .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.2);
-    cursor: pointer;
   }
+  
   /* Main content */
-  
   .main-content {
-    margin-left: 80px; /* same as sidebar width */
-    padding: 20px;
-    text-align: center;
-  }
-  
-  /* Dashboard header */
-  .main-content h1 {
-    color: #2d2525; /* darker text for contrast */
-    margin-bottom: 40px;
+    flex-grow: 1;
+    background-color: #6f6262; /* dark gray */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
   }
   
