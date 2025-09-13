@@ -1,15 +1,17 @@
-/* Container holding sidebar + main */
-.dashboard-container {
-    display: flex;
-    height: 100vh;
+/* Reset */
+body {
     margin: 0;
     font-family: Arial, sans-serif;
   }
   
-  /* Sidebar */
+  /* Sidebar stays fixed */
   .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 200px;
-    background-color: #c06565; /* muted red */
+    height: 100vh;              /* full height */
+    background-color: #c06565;  /* muted red */
     display: flex;
     flex-direction: column;
     padding-top: 40px;
@@ -21,17 +23,18 @@
     color: white;
     text-decoration: none;
     font-size: 16px;
-    transition: background 0.3s ease;
+    transition: 0.3s ease;
   }
   
   .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.2);
   }
   
-  /* Main content */
+  /* Main content pushed to the right */
   .main-content {
-    flex-grow: 1;
-    background-color: #6f6262; /* dark gray */
+    margin-left: 200px;         /* same as sidebar width */
+    height: 100vh;
+    background-color: #6f6262;  /* dark gray */
     display: flex;
     justify-content: center;
     align-items: center;

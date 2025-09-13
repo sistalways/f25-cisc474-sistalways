@@ -1,0 +1,44 @@
+/* Reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Sidebar stays fixed */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;              /* full height */
+    background-color: #c06565;  /* muted red */
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+  }
+  
+  /* Sidebar links */
+  .nav-link {
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Main content pushed to the right */
+  .main-content {
+    margin-left: 200px;         /* same as sidebar width */
+    height: 100vh;
+    background-color: #6f6262;  /* dark gray */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+  }
+  

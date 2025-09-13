@@ -4,19 +4,21 @@ import "./inbox.css"
 
 export default function Inbox() {
     return (
-        <div>
-            <main>
-            <h1>Inbox</h1>
+        <div className="Inbox-container">
+      
+      <div className="sidebar">
+        <Link href="/dashboard" className="nav-link">Dashboard</Link>
+        <Link href="/courses" className="nav-link">Courses</Link>
+        <Link href="/calendar" className="nav-link">Calendar</Link>
+        <Link href="/profile" className="nav-link">Profile</Link>
+        <Link href="/inbox" className="nav-link">Inbox</Link>
+      </div>
 
-            
-                <Link href="/dashboard" className="nav-link">Dashbaord</Link>
-                <Link href="/courses" className="nav-link">Courses</Link>
-                <Link href="/calendar" className="nav-link">Calendar</Link>
-                 
-                <Link href="/profile" className="nav-link">Profile</Link> 
-                <Link href="/inbox" className="nav-link">Inbox</Link> 
-            </main>
-        </div>
+    
+      <div className="main-content">
+        <h1>This is your Inbox</h1>
+      </div>
+    </div>
         
     );
 }

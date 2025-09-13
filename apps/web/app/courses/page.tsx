@@ -4,19 +4,21 @@ import "./courses.css"
 
 export default function Courses() {
     return (
-        <div>
-            <main>
-            <h1>Courses</h1>
+        <div className="Courses-container">
+      
+      <div className="sidebar">
+        <Link href="/dashboard" className="nav-link">Dashboard</Link>
+        <Link href="/courses" className="nav-link">Courses</Link>
+        <Link href="/calendar" className="nav-link">Calendar</Link>
+        <Link href="/profile" className="nav-link">Profile</Link>
+        <Link href="/inbox" className="nav-link">Inbox</Link>
+      </div>
 
-            
-                <Link href="/dashboard" className="nav-link">Dashbaord</Link>
-                <Link href="/courses" className="nav-link">Courses</Link>
-                <Link href="/calendar" className="nav-link">Calendar</Link>
-                 
-                <Link href="/profile" className="nav-link">Profile</Link> 
-                <Link href="/inbox" className="nav-link">Inbox</Link> 
-            </main>
-        </div>
+    
+      <div className="main-content">
+        <h1>This is your Courses Page</h1>
+      </div>
+    </div>
         
     );
 }
