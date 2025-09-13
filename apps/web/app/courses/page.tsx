@@ -12,6 +12,7 @@ export default function Courses() {
         <Link href="/calendar" className="nav-link">Calendar</Link>
         <Link href="/profile" className="nav-link">Profile</Link>
         <Link href="/inbox" className="nav-link">Inbox</Link>
+        <Link href="/" className="logout">Log out</Link>
       </div>
 
     
