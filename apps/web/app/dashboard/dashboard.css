@@ -16,6 +16,16 @@ body {
     flex-direction: column;
     padding-top: 40px;
   }
+
+  .logout {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 12px 20px;
+}
   
   /* Sidebar links */
   .nav-link {
