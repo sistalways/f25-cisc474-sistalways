@@ -1,0 +1,11 @@
+[
+    {
+      "id": 1,
+      "content": "Welcome to the course!",
+      "senderId": 2,
+      "receiverId": 1,
+      "status": "SENT",
+      "sentAt": "2025-09-19T10:00:00.000Z"
+    }
+  ]
+  
