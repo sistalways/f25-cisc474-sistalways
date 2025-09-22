@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "courseId": 1,
+    "enrolledAt": "2025-09-22T22:20:08.302Z"
+  },
+  {
+    "id": 2,
+    "userId": 2,
+    "courseId": 2,
+    "enrolledAt": "2025-09-22T22:20:08.302Z"
+  },
+  {
+    "id": 3,
+    "userId": 3,
+    "courseId": 3,
+    "enrolledAt": "2025-09-22T22:20:08.302Z"
+  },
+  {
+    "id": 4,
+    "userId": 4,
+    "courseId": 4,
+    "enrolledAt": "2025-09-22T22:20:08.302Z"
+  },
+  {
+    "id": 5,
+    "userId": 5,
+    "courseId": 5,
+    "enrolledAt": "2025-09-22T22:20:08.302Z"
+  },
+  {
+    "id": 6,
+    "userId": 6,
+    "courseId": 1,
+    "enrolledAt": "2025-09-22T22:20:08.302Z"
+  },
+  {
+    "id": 7,
+    "userId": 7,
+    "courseId": 2,
+    "enrolledAt": "2025-09-22T22:20:08.302Z"
+  },
+  {
+    "id": 8,
+    "userId": 8,
+    "courseId": 3,
+    "enrolledAt": "2025-09-22T22:20:08.302Z"
+  },
+  {
+    "id": 9,
+    "userId": 9,
+    "courseId": 4,
+    "enrolledAt": "2025-09-22T22:20:08.302Z"
+  },
+  {
+    "id": 10,
+    "userId": 10,
+    "courseId": 5,
+    "enrolledAt": "2025-09-22T22:20:08.302Z"
+  },
+  {
+    "id": 11,
+    "userId": 1,
+    "courseId": 1,
+    "enrolledAt": "2025-09-22T22:20:08.302Z"
+  },
+  {
+    "id": 12,
+    "userId": 2,
+    "courseId": 2,
+    "enrolledAt": "2025-09-22T22:20:08.302Z"
+  },
+  {
+    "id": 13,
+    "userId": 3,
+    "courseId": 3,
+    "enrolledAt": "2025-09-22T22:20:08.302Z"
+  },
+  {
+    "id": 14,
+    "userId": 4,
+    "courseId": 4,
+    "enrolledAt": "2025-09-22T22:20:08.302Z"
+  },
+  {
+    "id": 15,
+    "userId": 5,
+    "courseId": 5,
+    "enrolledAt": "2025-09-22T22:20:08.302Z"
+  }
+]

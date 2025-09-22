@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "content": "Message content 1",
+    "sentAt": "2025-09-22T22:20:08.302Z",
+    "status": "SENT",
+    "senderId": 1,
+    "receiverId": 2
+  },
+  {
+    "id": 2,
+    "content": "Message content 2",
+    "sentAt": "2025-09-22T22:20:08.302Z",
+    "status": "READ",
+    "senderId": 2,
+    "receiverId": 3
+  },
+  {
+    "id": 3,
+    "content": "Message content 3",
+    "sentAt": "2025-09-22T22:20:08.302Z",
+    "status": "SENT",
+    "senderId": 3,
+    "receiverId": 4
+  },
+  {
+    "id": 4,
+    "content": "Message content 4",
+    "sentAt": "2025-09-22T22:20:08.302Z",
+    "status": "READ",
+    "senderId": 4,
+    "receiverId": 5
+  },
+  {
+    "id": 5,
+    "content": "Message content 5",
+    "sentAt": "2025-09-22T22:20:08.302Z",
+    "status": "SENT",
+    "senderId": 5,
+    "receiverId": 6
+  },
+  {
+    "id": 6,
+    "content": "Message content 6",
+    "sentAt": "2025-09-22T22:20:08.302Z",
+    "status": "READ",
+    "senderId": 6,
+    "receiverId": 7
+  },
+  {
+    "id": 7,
+    "content": "Message content 7",
+    "sentAt": "2025-09-22T22:20:08.302Z",
+    "status": "SENT",
+    "senderId": 7,
+    "receiverId": 8
+  },
+  {
+    "id": 8,
+    "content": "Message content 8",
+    "sentAt": "2025-09-22T22:20:08.302Z",
+    "status": "READ",
+    "senderId": 8,
+    "receiverId": 9
+  },
+  {
+    "id": 9,
+    "content": "Message content 9",
+    "sentAt": "2025-09-22T22:20:08.302Z",
+    "status": "SENT",
+    "senderId": 9,
+    "receiverId": 10
+  },
+  {
+    "id": 10,
+    "content": "Message content 10",
+    "sentAt": "2025-09-22T22:20:08.302Z",
+    "status": "READ",
+    "senderId": 10,
+    "receiverId": 1
+  }
+]

@@ -1,121 +1,115 @@
+// packages/database/src/seed.ts
 import { prisma } from "./client";
-
+import fs from "fs";
+import path from "path";
 import type { User, Course, Enrollment, Assignment, Submission, Grade, Message } from "../generated/client";
 
-// --- Default Data ---
-const DEFAULT_USERS: Array<Partial<User>> = [
-  { id: "1", name: "Alice Student", email: "alice@example.com" },
-  { id: "2", name: "Bob Instructor", email: "bob@example.com" },
-];
+// --- Row counts ---
+const NUM_USERS = 10;
+const NUM_COURSES = 5;
+const NUM_ENROLLMENTS = 15;
+const NUM_ASSIGNMENTS = 8;
+const NUM_SUBMISSIONS = 12;
+const NUM_GRADES = 12;
+const NUM_MESSAGES = 10;
 
-const DEFAULT_COURSES: Array<Partial<Course>> = [
-  { id: 1, title: "Intro to Programming", description: "Learn the basics of coding", instructorId: 2 },
-];
+// --- Hardcoded Data ---
+const DEFAULT_USERS: User[] = Array.from({ length: NUM_USERS }).map((_, i) => ({
+  id: i + 1,
+  email: `user${i + 1}@example.com`,
+  name: `User ${i + 1}`,
+  role: i % 3 === 0 ? "INSTRUCTOR" : "STUDENT",
+  createdAt: new Date(),
+  updatedAt: new Date(),
+}));
 
-const DEFAULT_ENROLLMENTS: Array<Partial<Enrollment>> = [
-  { id: 1, userId: 1, courseId: 1 },
-];
+const DEFAULT_COURSES: Course[] = Array.from({ length: NUM_COURSES }).map((_, i) => ({
+  id: i + 1,
+  title: `Course ${i + 1}`,
+  description: `Description for Course ${i + 1}`,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  instructorId: (i % NUM_USERS) + 1,
+  user: { connect: { id: (i % NUM_USERS) + 1 } },
+}));
 
-const DEFAULT_ASSIGNMENTS: Array<Partial<Assignment>> = [
-  { id: 1, title: "Homework 1", description: "First assignment", dueDate: new Date("2025-10-01"), courseId: 1 },
-];
+const DEFAULT_ENROLLMENTS: Enrollment[] = Array.from({ length: NUM_ENROLLMENTS }).map((_, i) => ({
+  id: i + 1,
+  userId: (i % NUM_USERS) + 1,
+  courseId: (i % NUM_COURSES) + 1,
+  enrolledAt: new Date(),
+}));
 
-const DEFAULT_SUBMISSIONS: Array<Partial<Submission>> = [
-  { id: 1, content: "My solution", assignmentId: 1, studentId: 1 },
-];
+const DEFAULT_ASSIGNMENTS: Assignment[] = Array.from({ length: NUM_ASSIGNMENTS }).map((_, i) => ({
+  id: i + 1,
+  title: `Assignment ${i + 1}`,
+  description: `Description for Assignment ${i + 1}`,
+  dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  courseId: (i % NUM_COURSES) + 1,
+}));
 
-const DEFAULT_GRADES: Array<Partial<Grade>> = [
-  { id: 1, score: 95, feedback: "Great work!", submissionId: 1, graderId: 2 },
-];
+const DEFAULT_SUBMISSIONS: Submission[] = Array.from({ length: NUM_SUBMISSIONS }).map((_, i) => ({
+  id: i + 1,
+  content: `Submission content ${i + 1}`,
+  submittedAt: new Date(),
+  updatedAt: new Date(),
+  assignmentId: (i % NUM_ASSIGNMENTS) + 1,
+  studentId: (i % NUM_USERS) + 1,
+}));
 
-const DEFAULT_MESSAGES: Array<Partial<Message>> = [
-  { id: 1, content: "Welcome to the course!", senderId: 2, receiverId: 1 },
-];
+const DEFAULT_GRADES: Grade[] = Array.from({ length: NUM_GRADES }).map((_, i) => ({
+  id: i + 1,
+  score: 50 + (i % 51),
+  feedback: `Feedback for submission ${i + 1}`,
+  gradedAt: new Date(),
+  submissionId: (i % NUM_SUBMISSIONS) + 1,
+  graderId: (i % NUM_USERS) + 1,
+}));
 
-// --- Seed Function ---
+const DEFAULT_MESSAGES: Message[] = Array.from({ length: NUM_MESSAGES }).map((_, i) => ({
+  id: i + 1,
+  content: `Message content ${i + 1}`,
+  sentAt: new Date(),
+  status: i % 2 === 0 ? "SENT" : "READ",
+  senderId: (i % NUM_USERS) + 1,
+  receiverId: ((i + 1) % NUM_USERS) + 1,
+}));
+
+// --- Seed & Export JSON ---
 (async () => {
   try {
-    console.log("🌱 Seeding Users...");
-    await Promise.all(
-      DEFAULT_USERS.map((user) =>
-        prisma.user.upsert({
-          where: { email: user.email! }, // unique field
-          update: user,
-          create: user,
-        })
-      )
-    );
+    // --- Insert into Supabase ---
+    await prisma.user.createMany({ data: DEFAULT_USERS, skipDuplicates: true });
+    await prisma.course.createMany({ data: DEFAULT_COURSES, skipDuplicates: true });
+    await prisma.enrollment.createMany({ data: DEFAULT_ENROLLMENTS, skipDuplicates: true });
+    await prisma.assignment.createMany({ data: DEFAULT_ASSIGNMENTS, skipDuplicates: true });
+    await prisma.submission.createMany({ data: DEFAULT_SUBMISSIONS, skipDuplicates: true });
+    await prisma.grade.createMany({ data: DEFAULT_GRADES, skipDuplicates: true });
+    await prisma.message.createMany({ data: DEFAULT_MESSAGES, skipDuplicates: true });
 
-    console.log("🌱 Seeding Courses...");
-    await Promise.all(
-      DEFAULT_COURSES.map((course) =>
-        prisma.course.upsert({
-          where: { id: course.id! }, // id is unique
-          update: course,
-          create: course,
-        })
-      )
-    );
+    console.log("✅ All data seeded successfully!");
 
-    console.log("🌱 Seeding Enrollments...");
-    await Promise.all(
-      DEFAULT_ENROLLMENTS.map((enrollment) =>
-        prisma.enrollment.upsert({
-          where: { userId_courseId: { userId: enrollment.userId!, courseId: enrollment.courseId! } }, // composite unique
-          update: {},
-          create: enrollment,
-        })
-      )
-    );
+    // --- Save JSON files ---
+    const jsonDir = path.join(__dirname, "Seeded Data");
+    if (!fs.existsSync(jsonDir)) fs.mkdirSync(jsonDir);
 
-    console.log("🌱 Seeding Assignments...");
-    await Promise.all(
-      DEFAULT_ASSIGNMENTS.map((assignment) =>
-        prisma.assignment.upsert({
-          where: { id: assignment.id! },
-          update: assignment,
-          create: assignment,
-        })
-      )
-    );
+    function saveJSON(filename: string, data: any[]) {
+      fs.writeFileSync(path.join(jsonDir, filename), JSON.stringify(data, null, 2), "utf-8");
+    }
 
-    console.log("🌱 Seeding Submissions...");
-    await Promise.all(
-      DEFAULT_SUBMISSIONS.map((submission) =>
-        prisma.submission.upsert({
-          where: { id: submission.id! },
-          update: submission,
-          create: submission,
-        })
-      )
-    );
+    saveJSON("Users.json", DEFAULT_USERS);
+    saveJSON("Courses.json", DEFAULT_COURSES);
+    saveJSON("Enrollments.json", DEFAULT_ENROLLMENTS);
+    saveJSON("Assignments.json", DEFAULT_ASSIGNMENTS);
+    saveJSON("Submissions.json", DEFAULT_SUBMISSIONS);
+    saveJSON("Grades.json", DEFAULT_GRADES);
+    saveJSON("Messages.json", DEFAULT_MESSAGES);
 
-    console.log("🌱 Seeding Grades...");
-    await Promise.all(
-      DEFAULT_GRADES.map((grade) =>
-        prisma.grade.upsert({
-          where: { submissionId: grade.submissionId! }, // unique in schema
-          update: grade,
-          create: grade,
-        })
-      )
-    );
-
-    console.log("🌱 Seeding Messages...");
-    await Promise.all(
-      DEFAULT_MESSAGES.map((message) =>
-        prisma.message.upsert({
-          where: { id: message.id! },
-          update: message,
-          create: message,
-        })
-      )
-    );
-
-    console.log("✅ Database has been seeded successfully!");
+    console.log("✅ All JSON files saved in /Seeded Data");
   } catch (error) {
-    console.error("❌ Error during seeding:", error);
-    process.exit(1);
+    console.error("❌ Error while seeding:", error);
   } finally {
     await prisma.$disconnect();
   }
