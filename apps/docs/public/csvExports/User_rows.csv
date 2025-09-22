@@ -1,0 +1,11 @@
+id,email,name,role,createdAt,updatedAt
+1,Leila24@hotmail.com,Zachary Metz,ADMIN,2025-09-22 18:32:21.644,2025-09-22 18:32:21.644
+2,bob@example.com,Bob Instructor,INSTRUCTOR,2025-09-22 18:08:37.633,2025-09-22 18:28:28.432
+3,Virginia_Brown60@hotmail.com,Priscilla Feil I,STUDENT,2025-09-22 18:32:21.645,2025-09-22 18:32:21.645
+4,user4@example.com,User 4,INSTRUCTOR,2025-09-22 18:40:20.527,2025-09-22 18:40:20.527
+5,Liliana27@yahoo.com,Emmett Frami Sr.,ADMIN,2025-09-22 18:32:21.645,2025-09-22 18:32:21.645
+6,user6@example.com,User 6,STUDENT,2025-09-22 18:40:20.527,2025-09-22 18:40:20.527
+7,Tracy_Stiedemann@gmail.com,Dr. Kendra Strosin Jr.,INSTRUCTOR,2025-09-22 18:32:21.645,2025-09-22 18:32:21.645
+8,Sincere.Grant@hotmail.com,Miss Ella Carroll,INSTRUCTOR,2025-09-22 18:32:21.645,2025-09-22 18:32:21.645
+9,user9@example.com,User 9,STUDENT,2025-09-22 18:40:20.527,2025-09-22 18:40:20.527
+10,user10@example.com,User 10,INSTRUCTOR,2025-09-22 18:40:20.527,2025-09-22 18:40:20.527

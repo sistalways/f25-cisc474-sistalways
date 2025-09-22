@@ -1,0 +1,11 @@
+id,content,sentAt,status,senderId,receiverId
+1,Welcome to the course!,2025-09-19 10:00:00,SENT,2,1
+2,Message content 2,2025-09-22 18:40:20.527,READ,2,3
+3,Message content 3,2025-09-22 18:40:20.527,SENT,3,4
+4,Message content 4,2025-09-22 18:40:20.527,READ,4,5
+5,Message content 5,2025-09-22 18:40:20.527,SENT,5,6
+6,Message content 6,2025-09-22 18:40:20.527,READ,6,7
+7,Message content 7,2025-09-22 18:40:20.527,SENT,7,8
+8,Message content 8,2025-09-22 18:40:20.527,READ,8,9
+9,Message content 9,2025-09-22 18:40:20.527,SENT,9,10
+10,Message content 10,2025-09-22 18:40:20.527,READ,10,1

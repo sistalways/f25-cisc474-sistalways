@@ -1,0 +1,13 @@
+id,score,feedback,gradedAt,submissionId,graderId
+1,95,Excellent work,2025-09-21 00:00:00,1,2
+2,51,Feedback for submission 2,2025-09-22 18:40:20.527,2,2
+3,52,Feedback for submission 3,2025-09-22 18:40:20.527,3,3
+4,53,Feedback for submission 4,2025-09-22 18:40:20.527,4,4
+5,54,Feedback for submission 5,2025-09-22 18:40:20.527,5,5
+6,55,Feedback for submission 6,2025-09-22 18:40:20.527,6,6
+7,56,Feedback for submission 7,2025-09-22 18:40:20.527,7,7
+8,57,Feedback for submission 8,2025-09-22 18:40:20.527,8,8
+9,58,Feedback for submission 9,2025-09-22 18:40:20.527,9,9
+10,59,Feedback for submission 10,2025-09-22 18:40:20.527,10,10
+11,60,Feedback for submission 11,2025-09-22 18:40:20.527,11,1
+12,61,Feedback for submission 12,2025-09-22 18:40:20.527,12,2

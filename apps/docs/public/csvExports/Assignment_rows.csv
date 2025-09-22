@@ -1,0 +1,9 @@
+id,title,description,dueDate,createdAt,updatedAt,courseId
+1,Assignment 1,Write a simple program,2025-10-01 00:00:00,2025-09-22 18:13:26.471,2025-09-22 18:28:29.233,1
+2,Assignment 2,Description for Assignment 2,2025-09-29 18:40:20.527,2025-09-22 18:40:20.527,2025-09-22 18:40:20.527,2
+3,Assignment 3,Description for Assignment 3,2025-09-29 18:40:20.527,2025-09-22 18:40:20.527,2025-09-22 18:40:20.527,3
+4,Assignment 4,Description for Assignment 4,2025-09-29 18:40:20.527,2025-09-22 18:40:20.527,2025-09-22 18:40:20.527,4
+5,Assignment 5,Description for Assignment 5,2025-09-29 18:40:20.527,2025-09-22 18:40:20.527,2025-09-22 18:40:20.527,5
+6,Assignment 6,Description for Assignment 6,2025-09-29 18:40:20.527,2025-09-22 18:40:20.527,2025-09-22 18:40:20.527,1
+7,Assignment 7,Description for Assignment 7,2025-09-29 18:40:20.527,2025-09-22 18:40:20.527,2025-09-22 18:40:20.527,2
+8,Assignment 8,Description for Assignment 8,2025-09-29 18:40:20.527,2025-09-22 18:40:20.527,2025-09-22 18:40:20.527,3
