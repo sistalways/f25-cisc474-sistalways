@@ -69,3 +69,4 @@ pnpm-debug.log*
 
 server/dist
 public/dist
+/generated/prisma
