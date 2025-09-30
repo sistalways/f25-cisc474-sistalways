@@ -1,7 +1,7 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { EnrollmentService } from './enrollment.service';
-@Controller('enrollments')
-export class UserController {
+@Controller('enrollment')
+export class EnrollmentController {
   constructor(private readonly usersService: EnrollmentService) {}
 
   @Get()
