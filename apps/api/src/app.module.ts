@@ -4,13 +4,13 @@ import { LinksModule } from './links/links.module';
 
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
-import { UserModule } from './user/user/user.module';
-import { CourseModule } from './course/course/course.module';
-import { EnrollmentModule } from './enrollment/enrollment/enrollment.module';
-import { AssignmentModule } from './assignment/assignment/assignment.module';
-import { SubmissionModule } from './submission/submission/submission.module';
-import { GradeModule } from './grade/grade/grade.module';
-import { MessageModule } from './message/message/message.module';
+import { UserModule } from './user/user.module';
+import { CourseModule } from './course/course.module';
+import { EnrollmentModule } from './enrollment/enrollment.module';
+import { AssignmentModule } from './assignment/assignment.module';
+import { SubmissionModule } from './submission/submission.module';
+import { GradeModule } from './grade/grade.module';
+import { MessageModule } from './message/message.module';
 
 
 
