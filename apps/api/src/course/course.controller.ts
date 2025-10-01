@@ -3,16 +3,16 @@ import { CourseService } from './course.service';
 
 @Controller('course')
 export class CourseController {
-constructor(private readonly usersService: CourseService) {}
+constructor(private readonly CourseService: CourseService) {}
 
   @Get()
   findAll() {
-    return this.usersService.findAll();
+    return this.CourseService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
+    return this.CourseService.findOne(+id);
   }
     
 }

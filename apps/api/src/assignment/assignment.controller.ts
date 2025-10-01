@@ -3,16 +3,16 @@ import { AssignmentService } from './assignment.service';
 
 @Controller('assignment')
 export class AssignmentController {
-constructor(private readonly usersService: AssignmentService) {}
+constructor(private readonly AssignmentService: AssignmentService) {}
 
   @Get()
   findAll() {
-    return this.usersService.findAll();
+    return this.AssignmentService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
+    return this.AssignmentService.findOne(+id);
   }
     
 }
