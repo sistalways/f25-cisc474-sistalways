@@ -7,11 +7,11 @@ export class SubmissionService {
   constructor(private prisma: PrismaService) {}
 
   findAll() {
-    return this.prisma.user.findMany();
+    return this.prisma.submission.findMany();
   }
 
   findOne(id: number) {
-    return this.prisma.user.findUnique({
+    return this.prisma.submission.findUnique({
       where: { id },
     });
   }

@@ -7,11 +7,11 @@ export class CourseService {
   constructor(private prisma: PrismaService) {}
 
   findAll() {
-    return this.prisma.user.findMany();
+    return this.prisma.course.findMany();
   }
 
   findOne(id: number) {
-    return this.prisma.user.findUnique({
+    return this.prisma.course.findUnique({
       where: { id },
     });
   }

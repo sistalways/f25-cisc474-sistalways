@@ -7,11 +7,11 @@ export class MessageService {
   constructor(private prisma: PrismaService) {}
 
   findAll() {
-    return this.prisma.user.findMany();
+    return this.prisma.message.findMany();
   }
 
   findOne(id: number) {
-    return this.prisma.user.findUnique({
+    return this.prisma.message.findUnique({
       where: { id },
     });
   }
