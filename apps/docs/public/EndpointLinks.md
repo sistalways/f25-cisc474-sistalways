@@ -1,4 +1,4 @@
-# All data Links
+# All data 
 
 User - 
 Course - 
@@ -9,7 +9,7 @@ Grade -
 Message - 
 
 
-# Specific data links
+# Specific data 
 
 User - 
 Course - 
