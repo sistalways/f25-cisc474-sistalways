@@ -3,16 +3,16 @@ import { MessageService } from './message.service';
 
 @Controller('message')
 export class MessageController {
-constructor(private readonly MessageService: MessageService) {}
+constructor(private readonly messageService: MessageService) {}
 
   @Get()
   findAll() {
-    return this.MessageService.findAll();
+    return this.messageService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.MessageService.findOne(+id);
+    return this.messageService.findOne(+id);
   }
     
 }

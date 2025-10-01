@@ -4,16 +4,16 @@ import { SubmissionService } from './submission.service';
 
 @Controller('submission')
 export class SubmissionController {
-constructor(private readonly SubmissionService: SubmissionService) {}
+constructor(private readonly submissionService: SubmissionService) {}
 
   @Get()
   findAll() {
-    return this.SubmissionService.findAll();
+    return this.submissionService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.SubmissionService.findOne(+id);
+    return this.submissionService.findOne(+id);
   }
     
 }

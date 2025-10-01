@@ -2,15 +2,15 @@ import { Controller, Get, Param } from '@nestjs/common';
 import { EnrollmentService } from './enrollment.service';
 @Controller('enrollment')
 export class EnrollmentController {
-  constructor(private readonly usersService: EnrollmentService) {}
+  constructor(private readonly enrollmentService: EnrollmentService) {}
 
   @Get()
   findAll() {
-    return this.usersService.findAll();
+    return this.enrollmentService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
+    return this.enrollmentService.findOne(+id);
   }
 }
