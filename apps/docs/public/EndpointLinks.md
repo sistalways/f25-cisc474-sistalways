@@ -4,7 +4,7 @@ User - https://f25-cisc474-sistalways.onrender.com/user
 
 Course - https://f25-cisc474-sistalways.onrender.com/course
 
-Enrollment - https://f25-cisc474-sistalways.onrender.com/erollment
+Enrollment - https://f25-cisc474-sistalways.onrender.com/enrollment
 
 Assignment - https://f25-cisc474-sistalways.onrender.com/assignment
 
@@ -21,7 +21,7 @@ User - https://f25-cisc474-sistalways.onrender.com/user/1
 
 Course - https://f25-cisc474-sistalways.onrender.com/course/1
 
-Enrollment - https://f25-cisc474-sistalways.onrender.com/erollment/1
+Enrollment - https://f25-cisc474-sistalways.onrender.com/enrollment/1
 
 Assignment - https://f25-cisc474-sistalways.onrender.com/assignment/1
 
