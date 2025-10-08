@@ -17,12 +17,12 @@ export default function Profile() {
   
       
         <div className="main-content">
-          <h1>These are the link to pages that use data from the backend
+          <h2>Below are the links to the pages that use data from the backend :-
           <ul typeof="bullet">
             <li><Link href="https://sistalways-lms.vercel.app/dasboard">Courses Page - https://sistalways-lms.vercel.app/dashboard </Link></li>
-            <li><Link href="https://sistalways-lms.vercel.app/inbox">Inbox Page https://sistalways-lms.vercel.app/inbox</Link></li>
+            <li><Link href="https://sistalways-lms.vercel.app/inbox">Inbox Page - https://sistalways-lms.vercel.app/inbox</Link></li>
           </ul>
-          </h1>
+          </h2>
         </div>
       </div>
         
