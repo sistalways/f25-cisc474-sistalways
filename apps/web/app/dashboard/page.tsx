@@ -22,13 +22,12 @@ export default async function Dashboard() {
 
     
       <div className="main-content">
-        <h1>This is your Dashboard</h1>
       <div className="courses-section">
         <h2>Your Courses</h2>
         <div className="courses-list">
           {courses.map((course:{title:string},idx:number) => (
             <div key={idx} className="course-card">
-              <h3>{course.title}</h3>
+              <h3>{course.title}</h3> 
             </div>
           ))}
         </div>

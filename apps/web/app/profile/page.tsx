@@ -17,7 +17,11 @@ export default function Profile() {
   
       
         <div className="main-content">
-          <h1>This is your Profile Page</h1>
+          <h1>These are the link to pages that use data from the backend</h1>
+          <ul typeof="bullet">
+            <li><Link href="https://sistalways-lms.vercel.app/courses">Courses Page - https://sistalways-lms.vercel.app/courses </Link></li>
+            <li><Link href="https://sistalways-lms.vercel.app/inbox">Inbox Page https://sistalways-lms.vercel.app/inbox</Link></li>
+          </ul>
         </div>
       </div>
         

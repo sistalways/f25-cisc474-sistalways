@@ -51,4 +51,25 @@ body {
     color: white;
     font-size: 24px;
   }
-  
+  .courses-list {
+    padding: 12px 20px;
+    margin-left: 200px;         /* same as sidebar width */
+    height: 100vh;
+    background-color: #6f6262;  /* dark gray */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(194, 157, 157);
+    font-size: 24px;
+  }
+
+  .course-card{
+    padding: 12px 20px;
+  }
+  .course-card:hover {
+    background-color: rgba(235, 235, 235, 0.869);
+  }
+  .course-section{
+    align-items: top;
+
+  }
