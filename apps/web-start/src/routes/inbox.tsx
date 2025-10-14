@@ -84,7 +84,7 @@ function RouteComponent() {
           * must be a direct child of .main-content to inherit
           * the full-width stretching correctly.
           */}
-        <Suspense fallback={<p className="loading">Loading messages...</p>}>
+        <Suspense fallback={<p className="loading">Loading messages....</p>}>
           <MessagesList />
         </Suspense>
       </div>
