@@ -1,13 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import "./dashboard.css";
-import {Suspense} from 'react';
-import courses from "./Courses.json";
 
-
-export default async function Dashboard() {
- 
-
+export default function Dashboard() {
   return (
     <div className="dashboard-container">
       
@@ -22,17 +17,8 @@ export default async function Dashboard() {
 
     
       <div className="main-content">
-      <div className="courses-section">
-        <h2>Your Courses</h2>
-        <div className="courses-list">
-          {courses.map((course:{title:string},idx:number) => (
-            <div key={idx} className="course-card">
-              <h3>{course.title}</h3> 
-            </div>
-          ))}
-        </div>
+        <h1>This is your Dashboard</h1>
       </div>
-    </div>
     </div>
   );
 }
