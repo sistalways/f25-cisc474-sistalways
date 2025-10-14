@@ -22,8 +22,8 @@ function RouteComponent() {
         <div className="main-content">
           <h2>Below are the links to the pages that use data from the backend :-
           <ul typeof="bullet">
-            <li><Link href="https://sistalways-lms.vercel.app/dasboard" to={'/profile'}>Courses Page - https://sistalways-lms.vercel.app/dashboard </Link></li>
-            <li><Link href="https://sistalways-lms.vercel.app/inbox" to={'/profile'}>Inbox Page - https://sistalways-lms.vercel.app/inbox</Link></li>
+            <li><Link href="cisc474-ind-frontend.vjgcs.workers.de/dasboard" to={'/profile'}>Courses Page - cisc474-ind-frontend.vjgcs.workers.de/dashboard </Link></li>
+            <li><Link href="cisc474-ind-frontend.vjgcs.workers.de/inbox" to={'/profile'}>Inbox Page - cisc474-ind-frontend.vjgcs.workers.de/inbox</Link></li>
           </ul>
           </h2>
         </div>

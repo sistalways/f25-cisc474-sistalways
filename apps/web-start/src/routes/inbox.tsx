@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Suspense } from "react";
 import { Link } from '@tanstack/react-router';
 
+{/*
 type Message = {
   id: string;        
   content   :  string;
@@ -58,14 +59,15 @@ async function MessagesList() {
     </div>
   );
 }
-
+*/}
 export const Route = createFileRoute('/inbox')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
     return (
-        <div className="Inbox-container">
+      
+      <div className="inbox-container">
       
       <div className="sidebar">
           <Link href="/dashboard" className="nav-link" to={'/dashboard'}>Dashboard</Link>
@@ -78,17 +80,33 @@ function RouteComponent() {
 
     
       <div className="main-content">
-        {/*
-          * REMOVED: <main className="main-layout"> wrapper.
-          * The MessagesList (which contains .inbox-container)
-          * must be a direct child of .main-content to inherit
-          * the full-width stretching correctly.
-          */}
+        <h1>This is your Inbox</h1>
+      </div>
+    </div>
+      
+     );
+
+       {/* <div className="Inbox-container">
+      
+      <div className="sidebar">
+          <Link href="/dashboard" className="nav-link" to={'/dashboard'}>Dashboard</Link>
+          <Link href="/courses" className="nav-link" to={'/courses'}>Courses</Link>
+          <Link href="/calendar" className="nav-link" to={'/calendar'}>Calendar</Link>
+          <Link href="/profile" className="nav-link" to={'/profile'}>Profile</Link>
+          <Link href="/inbox" className="nav-link" to={'/inbox'}>Inbox</Link>
+          <Link href="/" className="logout" to={'/'}>Log out</Link>
+      </div>
+
+    
+      <div className="main-content">
+        
         <Suspense fallback={<p className="loading">Loading messages....</p>}>
           <MessagesList />
         </Suspense>
       </div>
     </div>
+      
+        */} 
         
-    );
+      
 }
