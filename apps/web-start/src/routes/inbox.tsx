@@ -1,5 +1,7 @@
+import { useQuery } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router'
 import { Link } from '@tanstack/react-router';
+import { backendFetcher } from '../integrations/fetcher.ts';
 
 {/*
 type Message = {
@@ -22,7 +24,7 @@ async function getMessages(): Promise<Message[]> {
 }
 
 async function MessagesList() {
-  const messages = await getMessages();
+  const messages = ;
 
   return (
     <div className="inbox-container">
@@ -59,12 +61,63 @@ async function MessagesList() {
   );
 }
 */}
+type Message = {
+  id: string;        
+  content   :  string;
+  sentAt   :   Date;
+  status  :   "SENT" | "DELIVERED" | "READ";
+  sender   :   string;       
+  senderId  :  string;
+  receiver   : string ;      
+  receiverId : string;
+}
+async function MessagesList() {
+  const fetched = backendFetcher<Message[]>('/message');
+  const messages = await fetched();
+ 
+
+  return (
+    <div className="inbox-container">
+      <h1 className="inbox-title">Inbox</h1>
+      <ul className="message-list">
+        {messages.length}
+        {messages.map((msg) => (
+          <li key={parseInt(msg.id)} className="message-item">
+            <div className="message-info">
+              <div className="message-sender">
+                <strong>{msg.senderId}</strong>
+              </div>
+              <div className="message-content">{msg.content}</div>
+            </div>
+            <div className="message-meta">
+              <div className="message-date">
+                {new Date(msg.sentAt).toLocaleString()}
+              </div>
+              <div
+                className={`message-status ${
+                  msg.status === "READ"
+                    ? "status-read"
+                    : msg.status === "DELIVERED"
+                    ? "status-delivered"
+                    : "status-sent"
+                }`}
+              >
+                {msg.status}
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+              }
 export const Route = createFileRoute('/inbox')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
     return (
+      
       
       <div className="inbox-container">
       
@@ -79,7 +132,8 @@ function RouteComponent() {
 
     
       <div className="main-content">
-        <h1>This is your Inbox</h1>
+        
+            <MessagesList />
       </div>
     </div>
       

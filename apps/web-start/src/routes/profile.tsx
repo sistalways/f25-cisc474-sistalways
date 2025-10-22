@@ -26,6 +26,13 @@ function RouteComponent() {
             <li><Link href="cisc474-ind-frontend.vjgcs.workers.de/inbox" to={'/profile'}>Inbox Page - cisc474-ind-frontend.vjgcs.workers.de/inbox</Link></li>
           </ul>
           </h2>
+          <br></br>
+          <h2>Below is the link to the page that have DTO's implemented and have the Create,Update,Delete forms :-
+          <ul typeof="bullet">
+            <li><Link href="cisc474-ind-frontend.vjgcs.workers.de/courses" to={'/courses'}>Courses Page - cisc474-ind-frontend.vjgcs.workers.de/courses </Link></li>
+          </ul>
+          </h2>
+
         </div>
       </div>
         
