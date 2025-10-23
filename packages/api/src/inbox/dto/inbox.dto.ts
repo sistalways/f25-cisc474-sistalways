@@ -53,5 +53,8 @@ export const MessagesListFilter = Pagination.extend({
   receiverId: z.number().optional(),
   status: z.enum(["SENT", "DRAFT", "READ", "UNREAD"]).optional(),
   contentLike: z.string().optional(),
+  id: z.number(),
+  content: z.string(),
+  sentAt: z.coerce.date(),
 });
 export type MessagesListFilter = z.infer<typeof MessagesListFilter>;
