@@ -28,6 +28,9 @@ export type MessageOut = z.infer<typeof MessageOut>;
 // =========================
 export const MessageCreateIn = z.object({
   content: z.string().min(1, "Message content cannot be empty"),
+  id: z.number(),
+  sentAt: z.coerce.date(),
+  status: z.enum(["SENT", "DRAFT", "READ", "UNREAD"]),
   senderId: z.number(),
   receiverId: z.number(),
 });
