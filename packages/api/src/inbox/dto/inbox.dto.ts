@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Pagination } from '/Users/sistalways/f25-cisc474-sistalways/packages/api/src/queries'; 
+import { Pagination } from '../../queries'; 
 
 // =========================
 // Reference DTO
