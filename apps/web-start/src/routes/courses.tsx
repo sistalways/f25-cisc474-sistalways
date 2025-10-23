@@ -1,9 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { mutateBackend } from '/Users/sistalways/f25-cisc474-sistalways/apps/web-start/src/integrations/fetcher';
-import {CourseRef, CourseUpdateIn, CourseCreateIn,CourseOut} from '/Users/sistalways/f25-cisc474-sistalways/packages/api/src/courses/dto/courses.dto';
-import { backendFetcher } from '/Users/sistalways/f25-cisc474-sistalways/apps/web-start/src/integrations/fetcher';
+import {CourseRef, CourseUpdateIn, CourseCreateIn,CourseOut} from '../../../../packages/api/src/index.ts';
+import { backendFetcher,mutateBackend } from '../integrations/fetcher.ts';
 import { Link } from '@tanstack/react-router';
 type Course = {
   id          :string;      
