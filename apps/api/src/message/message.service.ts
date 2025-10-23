@@ -8,18 +8,18 @@ export class MessageService {
   constructor(private prisma: PrismaService) {}
 
   findAll() {
-    return this.prisma.course.findMany();
+    return this.prisma.message.findMany();
   }
 
   findOne(id: number) {
-    return this.prisma.course.findUnique({
+    return this.prisma.message.findUnique({
       where: { id },
     });
   }
   async create(createMessageDTO: MessageCreateIn){
-    const message = await this.prisma.course.create({ data: createMessageDTO });
+    const message = await this.prisma.message.create({ data: createMessageDTO });
     return {
-      contetnt:message.content,
+      content:message.content,
       sentAt:message.sentAt,
       status:message.status,
       senderId:message.senderId,
@@ -29,14 +29,14 @@ export class MessageService {
   }
 
   async update(id: number,updateMessageDto:MessageUpdateIn) {
-    const message = await this.prisma.course.update({ where: { id }, data :updateMessageDto });
+    const message = await this.prisma.message.update({ where: { id }, data :updateMessageDto });
     if (!message) {
       throw new Error('Course ${id} not found');
     }
   }
 
   async delete(id: number){
-    const message = await this.prisma.course.findUnique({ where: { id } });
+    const message = await this.prisma.message.findUnique({ where: { id } });
     if (!message) {
       throw new Error('Course ${id} not found');
     }
