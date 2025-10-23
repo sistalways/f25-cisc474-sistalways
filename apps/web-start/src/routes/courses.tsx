@@ -20,9 +20,20 @@ export const Route = createFileRoute('/courses')({
 function RouteComponent() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [showModal, setShowModal] = useState<'create' | 'update' | 'delete' | null>(null);
-  const [formData, setFormData] = useState({ id: '', title: '', description: '' });
+  const [formData, setFormData] = useState({ id: '', title: '', description: '',instructorId:'' });
   const queryClient = useQueryClient();
-
+  const getModalClass = () => {
+    switch (showModal) {
+        case 'create':
+            return 'modal-create';
+        case 'update':
+            return 'modal-update';
+        case 'delete':
+            return 'modal-delete';
+        default:
+            return '';
+    }
+  };
   // === Fetch Courses ===
   useEffect(() => {
     const fetchCourses = async () => {
@@ -91,12 +102,18 @@ function RouteComponent() {
 
       {/* === MAIN CONTENT === */}
       <div className="main-content">
-        <div className="CourseForms">
+        <div className="CreateCourseButton">
           <button onClick={() => setShowModal('create')}>Create Course</button>
-          <button onClick={() => setShowModal('update')}>Update Course</button>
-          <button onClick={() => setShowModal('delete')}>Delete Course</button>
         </div>
-
+        <br></br>
+        <div className = "UpdateCourseButton">
+            <button onClick={() => setShowModal('update')}>Update Course</button>
+        </div>
+        <br></br>
+        <div className = "DeleteCourseButton">
+        <button onClick={() => setShowModal('delete')}>Delete Course</button>
+        </div>
+        <br></br>
         <h1 className="courses-title">Courses</h1>
         <ul className="course-list">
           {courses.map((course) => (
@@ -108,58 +125,102 @@ function RouteComponent() {
         </ul>
 
         {/* === POPUP === */}
-        {showModal && (
-          <div className="modal-overlay">
-            <div className="modal">
-              <h2>
-                {showModal === 'create'
-                  ? 'Create Course'
-                  : showModal === 'update'
-                  ? 'Update Course'
-                  : 'Delete Course'}
-              </h2>
+{showModal && (
+  <div className="modal-overlay">
+    <div className={getModalClass()}>
+      <h2>
+        {showModal === 'create'
+          ? 'Create Course'
+          : showModal === 'update'
+          ? 'Update Course'
+          : 'Delete Course'}
+      </h2>
 
-              {(showModal === 'update' || showModal === 'delete') && (
-                <input
-                  type="text"
-                  placeholder="Course ID"
-                  value={formData.id}
-                  onChange={(e) => setFormData({ ...formData, id: e.target.value })}
-                />
-              )}
+      {/* === CREATE FORM === */}
+      {showModal === 'create' && (
+        <>
+        
+          <input
+            type="text"
+            placeholder="Instructor ID"
+            value={formData.instructorId || ''}
+            onChange={(e) => setFormData({ ...formData, instructorId: (e.target.value) })}
+          />
+          <br></br>
+          <input
+            type="text"
+            placeholder="Course Title"
+            value={formData.title}
+            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+          />
+          <br></br>
+          <input
+            type="text"
+            placeholder="Course Description"
+            value={formData.description}
+            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+          />
+          <br></br>
+        </>
+      )}
 
-              {(showModal === 'create' || showModal === 'update') && (
-                <>
-                  <input
-                    type="text"
-                    placeholder="Course Title"
-                    value={formData.title}
-                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Course Description"
-                    value={formData.description}
-                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  />
-                </>
-              )}
+      {/* === UPDATE FORM === */}
+      {showModal === 'update' && (
+        <>
+          <input
+            type="text"
+            placeholder="Course ID"
+            value={formData.id}
+            onChange={(e) => setFormData({ ...formData, id: (e.target.value) })}
+          />
+          <br></br>
+          <input
+            type="text"
+            placeholder="Course Title"
+            value={formData.title}
+            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+          />
+          <br></br>
+          <input
+            type="text"
+            placeholder="Course Description"
+            value={formData.description}
+            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+          />
+          <br></br>
+        </>
+      )}
 
-              <div className="modal-buttons">
-                {showModal === 'create' && (
-                  <button onClick={() => createMutation.mutate()}>Confirm Create</button>
-                )}
-                {showModal === 'update' && (
-                  <button onClick={() => updateMutation.mutate()}>Confirm Update</button>
-                )}
-                {showModal === 'delete' && (
-                  <button onClick={() => deleteMutation.mutate()}>Confirm Delete</button>
-                )}
-                <button onClick={() => setShowModal(null)}>Cancel</button>
-              </div>
-            </div>
-          </div>
+      {/* === DELETE FORM === */}
+      {showModal === 'delete' && (
+        <>
+          <input
+            type="text"
+            placeholder="Course ID"
+            value={formData.id}
+            onChange={(e) => setFormData({ ...formData, id:(e.target.value) })}
+          />
+          <br></br>
+        </>
+      )}
+
+      {/* === BUTTONS === */}
+      <div className="modal-buttons">
+        {showModal === 'create' && (
+          <button onClick={() => createMutation.mutate()}>Submit</button>
         )}
+        {showModal === 'update' && (
+          <button onClick={() => updateMutation.mutate()}>Submit</button>
+        )}
+        {showModal === 'delete' && (
+          <button onClick={() => deleteMutation.mutate()}>Submit</button>
+        )}
+        <button onClick={() => setShowModal(null)}>Cancel</button>
+      </div>
+    </div>
+  </div>
+)}
+
       </div>
     </div>
   );

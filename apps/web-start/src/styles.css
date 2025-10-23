@@ -356,3 +356,101 @@ body {
     transition: 0.3s ease;
 
 }
+
+CSS
+
+/* Create Update Delete Forms in Courses Page  */
+
+/* --- Modal Overlay (Ensures Visibility) --- */
+
+.modal-overlay {
+  /* Covers the entire viewport */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Dims the background */
+  background: rgba(0, 0, 0, 0.7); 
+  /* Centers the modal box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Crucial: Brings the modal on top of everything */
+  z-index: 1000; 
+}
+
+/* --- Modal Box Styling --- */
+
+.modal {
+  padding: 30px;
+  border-radius: 8px;
+  min-width: 350px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  color: white; /* Default text color for inside the modal */
+}
+
+/* --- Modal Colors (Matching Buttons) --- */
+
+.modal-create {
+  background-color: #5cb85c; /* Green like the Create button */
+  padding: 30px;
+  border-radius: 8px;
+  min-width: 350px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.modal-update {
+  background-color: #5c6bc0; /* Blue/Purple like the Update button */
+  padding: 30px;
+  border-radius: 8px;
+  min-width: 350px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.modal-delete {
+  background-color: #d9534f; /* Red like the Delete button */
+  padding: 30px;
+  border-radius: 8px;
+  min-width: 350px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Form Input Styling for Readability --- */
+
+.modal input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box; /* Includes padding in the element's total width and height */
+  color: #333; /* Dark text on white input field */
+}
+
+/* --- Modal Button Styling --- */
+
+.modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.modal-buttons button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+/* Style for the default Submit button */
+.modal-buttons button:first-child {
+  background-color: white; 
+  color: #333;
+}
+/* Style for the Cancel button */
+.modal-buttons button:last-child {
+  background-color: #888; 
+  color: white;
+}
