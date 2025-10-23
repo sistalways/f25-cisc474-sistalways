@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { MessageService } from './message.service';
-import {MessageRef, MessageUpdateIn, MessageCreateIn} from '/Users/sistalways/f25-cisc474-sistalways/packages/api/src/inbox/dto/inbox.dto'; 
+import {MessageRef, MessageUpdateIn, MessageCreateIn} from '@repo/api/inbox/dto/inbox.dto'; 
 @Controller('message')
 export class MessageController {
 constructor(private readonly messageService: MessageService) {}

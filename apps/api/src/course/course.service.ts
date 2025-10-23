@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service'; // Ensure prisma.service.ts exists in the same directory
-import {CourseRef, CourseUpdateIn, CourseCreateIn} from '/Users/sistalways/f25-cisc474-sistalways/packages/api/src/courses/dto/courses.dto'; 
+import {CourseRef, CourseUpdateIn, CourseCreateIn} from '@repo/api/courses/dto/courses.dto'; 
 
 
 

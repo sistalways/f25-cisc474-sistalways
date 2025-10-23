@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { CourseService } from './course.service';
-import {CourseRef, CourseUpdateIn, CourseCreateIn} from '/Users/sistalways/f25-cisc474-sistalways/packages/api/src/courses/dto/courses.dto'; 
+import {CourseRef, CourseUpdateIn, CourseCreateIn} from '@repo/api/courses/dto/courses.dto'; 
 @Controller('course')
 export class CourseController {
 constructor(private readonly courseService: CourseService) {}
