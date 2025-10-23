@@ -11,11 +11,12 @@ import { AssignmentModule } from './assignment/assignment.module';
 import { SubmissionModule } from './submission/submission.module';
 import { GradeModule } from './grade/grade.module';
 import { MessageModule } from './message/message.module';
+import { AuthModule } from './auth/auth.module';
 
 
 
 @Module({
-  imports: [LinksModule, UserModule, CourseModule, EnrollmentModule, AssignmentModule, SubmissionModule, GradeModule, MessageModule],
+  imports: [LinksModule, UserModule, CourseModule, EnrollmentModule, AssignmentModule, SubmissionModule, GradeModule, MessageModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
