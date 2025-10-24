@@ -98,7 +98,9 @@ function RouteComponent() {
                 <small>
                   Instructor ID: {course.instructorId} | Created: {new Date(course.createdAt).toLocaleDateString()}
                 </small>
+                <br></br>
               </div>
+              
             ))}
           </div>
         )}
