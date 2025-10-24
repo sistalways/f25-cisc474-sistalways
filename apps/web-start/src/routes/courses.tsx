@@ -1,8 +1,10 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
+import { createFileRoute, Link, useNavigate } from '@tanstack/react-router';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { backendFetcher, mutateBackend } from '../integrations/fetcher';
 import { CourseCreateIn, CourseUpdateIn, CourseOut } from '../../../../packages/api/src/index';
+
+type Course = CourseOut;
 
 export const Route = createFileRoute('/courses')({
   component: RouteComponent,
@@ -10,60 +12,97 @@ export const Route = createFileRoute('/courses')({
 
 function RouteComponent() {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState<'create' | 'update' | 'delete' | null>(null);
   const [formData, setFormData] = useState({ id: '', title: '', description: '', instructorId: '' });
 
   const getModalClass = () => {
     switch (showModal) {
-      case 'create': return 'modal-create';
-      case 'update': return 'modal-update';
-      case 'delete': return 'modal-delete';
-      default: return '';
+      case 'create':
+        return 'modal-create';
+      case 'update':
+        return 'modal-update';
+      case 'delete':
+        return 'modal-delete';
+      default:
+        return '';
     }
   };
 
   // === Fetch all courses ===
-  const { data: courses = [], isLoading, isError, error } = useQuery<CourseOut[]>({
+  const { data: courses = [], isLoading, isError, error } = useQuery<Course[]>({
     queryKey: ['courses'],
-    queryFn: backendFetcher<CourseOut[]>('/course'),
+    queryFn: async () => {
+      const fetchCourses = backendFetcher<Course[]>('/course');
+      return await fetchCourses();
+    },
   });
 
-  // === Mutations ===
+  // === Create Mutation ===
   const createMutation = useMutation({
-    mutationFn: () => {
+    mutationFn: async () => {
+      if (!formData.title || !formData.instructorId) {
+        alert('Title and Instructor ID are required');
+        return;
+      }
+
       const payload: CourseCreateIn = {
         title: formData.title,
-        description: formData.description,
+        description: formData.description || null,
         instructorId: Number(formData.instructorId),
       };
-      return mutateBackend('/course', 'POST', payload);
+      return await mutateBackend('/course', 'POST', payload);
     },
-    
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['courses'] });
+      setShowModal(null);
+      setFormData({ id: '', title: '', description: '', instructorId: '' });
+    },
   });
 
+  // === Update Mutation ===
   const updateMutation = useMutation({
-    mutationFn: () => {
+    mutationFn: async () => {
+      if (!formData.id) {
+        alert('Course ID is required');
+        return;
+      }
+
       const payload: CourseUpdateIn = {
-        title: formData.title,
-        description: formData.description,
+        title: formData.title || undefined,
+        description: formData.description || null,
+        instructorId: formData.instructorId ? Number(formData.instructorId) : undefined,
       };
-      return mutateBackend(`/course/${formData.id}`, 'PUT', payload);
+      return await mutateBackend(`/course/${formData.id}`, 'PUT', payload);
     },
-    
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['courses'] });
+      setShowModal(null);
+      setFormData({ id: '', title: '', description: '', instructorId: '' });
+    },
   });
 
+  // === Delete Mutation ===
   const deleteMutation = useMutation({
-    mutationFn: () => mutateBackend(`/course/${formData.id}`, 'DELETE'),
-    
+    mutationFn: async () => {
+      if (!formData.id) {
+        alert('Course ID is required');
+        return;
+      }
+      return await mutateBackend(`/course/${formData.id}`, 'DELETE');
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['courses'] });
+      setShowModal(null);
+      setFormData({ id: '', title: '', description: '', instructorId: '' });
+    },
   });
 
-  // === Loading / Error UI ===
-  if (isLoading) return <p>Loading courses.. {import.meta.env.VITE_BACKEND_URL};</p>;
+  if (isLoading) return <p>Loading courses...</p>;
   if (isError) return <p>Error loading courses: {(error as Error)?.message}</p>;
 
   return (
     <div className="dashboard-container">
-      {/* === Sidebar === */}
       <div className="sidebar">
         <Link className="nav-link" to="/dashboard">Dashboard</Link>
         <Link className="nav-link" to="/courses">Courses</Link>
@@ -73,20 +112,15 @@ function RouteComponent() {
         <Link className="logout" to="/">Log out</Link>
       </div>
 
-      {/* === Main content === */}
       <div className="main-content">
         <div className="button-bar">
-          <button className='modal-create' onClick={() => setShowModal('create')}>Create Course</button>
-          <br></br>
-          <button className='modal-update' onClick={() => setShowModal('update')}>Update Course</button>
-          <br></br>
-          <button className='modal-delete' onClick={() => setShowModal('delete')}>Delete Course</button>
-          <br></br>
+          <button onClick={() => setShowModal('create')}>Create Course</button>
+          <button onClick={() => setShowModal('update')}>Update Course</button>
+          <button onClick={() => setShowModal('delete')}>Delete Course</button>
         </div>
 
         <h1 className="courses-title">All Courses</h1>
 
-        {/* === Course list === */}
         {courses.length === 0 ? (
           <p>No courses available.</p>
         ) : (
@@ -96,22 +130,25 @@ function RouteComponent() {
                 <h2>{course.title}</h2>
                 <p>{course.description}</p>
                 <small>
-                  Instructor ID: {course.instructorId} | Created: {new Date(course.createdAt).toLocaleDateString()}
+                  Instructor ID: {course.instructorId} | Created:{' '}
+                  {new Date(course.createdAt).toLocaleDateString()}
                 </small>
               </div>
             ))}
           </div>
         )}
 
-        {/* === Modal === */}
         {showModal && (
           <div className="modal-overlay">
             <div className={getModalClass()}>
               <h2>
-                {showModal === 'create' ? 'Create Course' : showModal === 'update' ? 'Update Course' : 'Delete Course'}
+                {showModal === 'create'
+                  ? 'Create Course'
+                  : showModal === 'update'
+                  ? 'Update Course'
+                  : 'Delete Course'}
               </h2>
 
-              {/* === Form inputs === */}
               {(showModal === 'create' || showModal === 'update') && (
                 <>
                   {showModal === 'update' && (
@@ -164,11 +201,16 @@ function RouteComponent() {
                 </>
               )}
 
-              {/* === Buttons === */}
               <div className="modal-buttons">
-                {showModal === 'create' && <button onClick={() => createMutation.mutate()}>Submit</button>}
-                {showModal === 'update' && <button onClick={() => updateMutation.mutate()}>Submit</button>}
-                {showModal === 'delete' && <button onClick={() => deleteMutation.mutate()}>Submit</button>}
+                {showModal === 'create' && (
+                  <button onClick={() => createMutation.mutate()}>Submit</button>
+                )}
+                {showModal === 'update' && (
+                  <button onClick={() => updateMutation.mutate()}>Submit</button>
+                )}
+                {showModal === 'delete' && (
+                  <button onClick={() => deleteMutation.mutate()}>Submit</button>
+                )}
                 <button onClick={() => setShowModal(null)}>Cancel</button>
               </div>
             </div>
