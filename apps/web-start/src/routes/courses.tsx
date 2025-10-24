@@ -2,7 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { backendFetcher, mutateBackend } from '../integrations/fetcher';
-import { CourseCreateIn, CourseUpdateIn } from '../../../../packages/api/src/index';
+import { CourseCreateIn, CourseUpdateIn,CourseOut } from '../../../../packages/api/src/index';
 
 type Course = {
   id: string;
@@ -41,10 +41,10 @@ function RouteComponent() {
     isLoading,
     isError,
     error,
-  } = useQuery<Course[]>({
+  } = useQuery<CourseOut[]>({
     queryKey: ['courses'],
     queryFn: async () => {
-      const fetchCourses = backendFetcher<Course[]>('/course');
+      const fetchCourses = backendFetcher<CourseOut[]>('/course');
       return await fetchCourses();
     },
   });
