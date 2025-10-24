@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Put, Post } from '@nestjs/common';
 import { CourseService } from './course.service';
 import {CourseRef, CourseUpdateIn, CourseCreateIn} from '@repo/api/courses/dto/courses.dto'; 
 @Controller('course')
@@ -21,10 +21,11 @@ constructor(private readonly courseService: CourseService) {}
     return this.courseService.create(createCourseDTO);
   }
 
-  @Patch(":id")
+  @Put(":id")
   updateCourse(@Param("id") id: number, @Body() updateCourseDto: CourseUpdateIn) {
     return this.courseService.update(id, updateCourseDto);
   }
+
 
   @Delete(":id")
   deleteCourse(@Param("id") id: number) {
