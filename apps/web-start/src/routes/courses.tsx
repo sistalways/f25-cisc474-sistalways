@@ -58,7 +58,7 @@ function RouteComponent() {
   });
 
   // === Loading / Error UI ===
-  if (isLoading) return <p>Loading courses...</p>;
+  if (isLoading) return <p>Loading courses... {import.meta.env.VITE_BACKEND_URL};</p>;
   if (isError) return <p>Error loading courses: {(error as Error)?.message}</p>;
 
   return (
