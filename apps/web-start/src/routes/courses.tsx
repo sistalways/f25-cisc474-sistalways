@@ -76,9 +76,9 @@ function RouteComponent() {
       {/* === Main content === */}
       <div className="main-content">
         <div className="button-bar">
-          <button onClick={() => setShowModal('create')}>Create Course</button>
-          <button onClick={() => setShowModal('update')}>Update Course</button>
-          <button onClick={() => setShowModal('delete')}>Delete Course</button>
+          <button className='modal-create' onClick={() => setShowModal('create')}>Create Course</button>
+          <button className='modal-update' onClick={() => setShowModal('update')}>Update Course</button>
+          <button className='modal-delete' onClick={() => setShowModal('delete')}>Delete Course</button>
         </div>
 
         <h1 className="courses-title">All Courses</h1>
