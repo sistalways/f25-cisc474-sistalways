@@ -12,7 +12,7 @@ function RouteComponent() {
   const queryClient = useQueryClient();
   const [showModal, setShowModal] = useState<'create' | 'update' | 'delete' | null>(null);
   const [formData, setFormData] = useState({ id: '', title: '', description: '', instructorId: '' });
-
+  const resetForm = () => setFormData({ id: '', title: '', description: '', instructorId: '' });
   const getModalClass = () => {
     switch (showModal) {
       case 'create': return 'modal-create';
@@ -37,6 +37,11 @@ function RouteComponent() {
         instructorId: Number(formData.instructorId),
       };
       return mutateBackend('/course', 'POST', payload);
+    }, 
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['courses'] });
+      setShowModal(null);
+      resetForm();
     },
     
   });
@@ -49,13 +54,23 @@ function RouteComponent() {
       };
       return mutateBackend(`/course/${formData.id}`, 'PUT', payload);
     },
-    
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['courses'] });
+      setShowModal(null);
+      resetForm();
+    },
   });
 
   const deleteMutation = useMutation({
   mutationFn: () => mutateBackend(`/course/${formData.id}`, 'DELETE'),
+  onSuccess: () => {
+    queryClient.invalidateQueries({ queryKey: ['courses'] });
+    setShowModal(null);
+    resetForm();
+  },
 
   }  
+  
   );
 
   // === Loading / Error UI ===
