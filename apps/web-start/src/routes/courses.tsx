@@ -3,12 +3,39 @@ import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { backendFetcher, mutateBackend } from '../integrations/fetcher';
 import { CourseCreateIn, CourseUpdateIn, CourseOut } from '../../../../packages/api/src/index';
+import { useRouter } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/courses')({
   component: RouteComponent,
 });
 
+
+
 function RouteComponent() {
+  //submmit refresh handler
+  const router = useRouter();
+  function handleSubmit() {
+    let mutation;
+  
+    if (showModal === 'create') {
+      mutation = createMutation;
+    } else if (showModal === 'update') {
+      mutation = updateMutation;
+    } else if (showModal === 'delete') {
+      mutation = deleteMutation;
+    }
+  
+    if (mutation) {
+      mutation.mutate(undefined, {
+        onSuccess: () => {
+          // Option 1: Refresh the page
+  
+          // Option 2 (better UX): navigate to /courses instead of reload
+          router.navigate({ to: '/courses' });
+        },
+      });
+    }
+  }
   const queryClient = useQueryClient();
   const [showModal, setShowModal] = useState<'create' | 'update' | 'delete' | null>(null);
   const [formData, setFormData] = useState({ id: '', title: '', description: '', instructorId: '' });
@@ -186,9 +213,9 @@ function RouteComponent() {
 
               {/* === Buttons === */}
               <div className="modal-buttons">
-                {showModal === 'create' && <button onClick={() => createMutation.mutate()}>Submit</button>}
-                {showModal === 'update' && <button onClick={() => updateMutation.mutate()}>Submit</button>}
-                {showModal === 'delete' && <button onClick={() => deleteMutation.mutate()}>Submit</button>}
+                {showModal === 'create' && <button onClick={() => handleSubmit()}>Submit</button>}
+                {showModal === 'update' && <button onClick={() => handleSubmit()}>Submit</button>}
+                {showModal === 'delete' && <button onClick={() => handleSubmit()}>Submit</button>}
                 <button onClick={() => setShowModal(null)}>Cancel</button>
               </div>
             </div>
