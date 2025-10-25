@@ -62,7 +62,9 @@ function RouteComponent() {
   });
 
   const deleteMutation = useMutation({
-  mutationFn: () => mutateBackend(`/course/${formData.id}`, 'DELETE'),
+  mutationFn: () =>  {
+    return mutateBackend(`/course/${formData.id}`, 'DELETE')
+  },
   onSuccess: () => {
     queryClient.invalidateQueries({ queryKey: ['courses'] });
     setShowModal(null);
