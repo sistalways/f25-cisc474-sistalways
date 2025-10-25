@@ -28,9 +28,6 @@ function RouteComponent() {
     if (mutation) {
       mutation.mutate(undefined, {
         onSuccess: () => {
-          // Option 1: Refresh the page
-  
-          // Option 2 (better UX): navigate to /courses instead of reload
           router.navigate({ to: '/courses' });
         },
       });
@@ -69,6 +66,7 @@ function RouteComponent() {
       queryClient.invalidateQueries({ queryKey: ['courses'] });
       setShowModal(null);
       resetForm();
+      router.navigate({ to: '/courses' });
     },
     
   });
@@ -85,6 +83,7 @@ function RouteComponent() {
       queryClient.invalidateQueries({ queryKey: ['courses'] });
       setShowModal(null);
       resetForm();
+      router.navigate({ to: '/courses' });
     },
   });
 
@@ -96,6 +95,7 @@ function RouteComponent() {
     queryClient.invalidateQueries({ queryKey: ['courses'] });
     setShowModal(null);
     resetForm();
+    router.navigate({ to: '/courses' });
   },
 
   }  
