@@ -53,9 +53,10 @@ function RouteComponent() {
   });
 
   const deleteMutation = useMutation({
-    mutationFn: () => mutateBackend(`/course/${formData.id}`, 'DELETE'),
-    
-  });
+  mutationFn: () => mutateBackend(`/course/${formData.id}`, 'DELETE'),
+
+  }  
+  );
 
   // === Loading / Error UI ===
   if (isLoading) return <p>Loading courses.. {import.meta.env.VITE_BACKEND_URL};</p>;

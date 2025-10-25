@@ -38,7 +38,9 @@ export class CourseService {
   }
 
   async delete(id: number){
-     this.prisma.course.delete({ where: { id } });
-      return { message: `Course with id ${id} deleted successfully.` };
-  }
-}
+    const course = await this.prisma.course.findUnique({ where: { id } });
+    if (!course) {
+      throw new Error('Course ${id} not found');
+    }
+    return this.prisma.course.delete({ where: { id } });
+}}

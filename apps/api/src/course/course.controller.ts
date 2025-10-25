@@ -23,12 +23,12 @@ constructor(private readonly courseService: CourseService) {}
 
   @Put(":id")
   updateCourse(@Param("id") id: number, @Body() updateCourseDto: CourseUpdateIn) {
-    return this.courseService.update(id, updateCourseDto);
+    return this.courseService.update(+id, updateCourseDto);
   }
 
 
   @Delete(":id")
   deleteCourse(@Param("id") id: number) {
-    return this.courseService.delete(id);
+    return this.courseService.delete(+id);
   }
 }
