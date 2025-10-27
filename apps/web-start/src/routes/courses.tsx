@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useApiQuery, useApiMutation } from '../integrations/api';
 import { CourseCreateIn, CourseUpdateIn, CourseOut } from '../../../../packages/api/src/index';
 import LogOutButton from '../components/LogOutButton';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export const Route = createFileRoute('/courses')({
   component: RouteComponent,

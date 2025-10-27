@@ -20,12 +20,15 @@ export const getRouter = () => {
     Wrap: (props: { children: React.ReactNode }) => {
       return (
         <Auth0Provider
-          domain={import.meta.env.VITE_AUTH0_DOMAIN}
-          clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
-          authorizationParams={{
-            redirect_uri: redirect_uri,
-          }}
-        >
+              domain={import.meta.env.VITE_AUTH0_DOMAIN}
+              clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
+              // Persist the cache to localStorage and enable refresh tokens so auth survives full-page navigation
+              cacheLocation="localstorage"
+              useRefreshTokens={true}
+              authorizationParams={{
+                redirect_uri: redirect_uri,
+              }}
+            >
           <TanstackQuery.Provider {...rqContext}>
             {props.children}
           </TanstackQuery.Provider>
