@@ -104,7 +104,7 @@ function RouteComponent() {
   }
 
   // === Loading / Error UI ===
-  if (isAuthPending) return <p>Checking authentication...</p>;
+  if (isAuthPending) return <p>Checking authentication..</p>;
   if (isLoading) return <p>Loading courses...</p>;
   if (isError) return <p>Error loading courses: {(error as Error)?.message}</p>;
 
