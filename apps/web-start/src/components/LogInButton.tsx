@@ -11,7 +11,7 @@ const LogInButton = () => {
           authorizationParams: {
             scope: 'read:courses',
             prompt: 'consent',
-            audience: import.meta.env.VITE_AUTH0_AUDIENCE,
+            audience: import.meta.env.VITE_AUTH0_AUDIENCE as string,
           },
         })
       }
