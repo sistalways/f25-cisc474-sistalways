@@ -251,11 +251,13 @@ function RouteComponent() {
                 </>
               )}
 
-              {/* === Buttons === */}
-              <div className="modal-buttons">
-                <button onClick={() => handleSubmit()}>Submit</button>
-                <button onClick={() => setShowModal(null)}>Cancel</button>
-              </div>
+              
+              {/* === Buttons === */} 
+              <div className="modal-buttons"> 
+              {showModal === 'create' && <button onClick={() => handleSubmit()}>Submit</button>} 
+              {showModal === 'update' && <button onClick={() => handleSubmit()}>Submit</button>} 
+              {showModal === 'delete' && <button onClick={() => handleSubmit()}>Submit</button>} 
+              <button onClick={() => setShowModal(null)}>Cancel</button> </div>
             </div>
           </div>
         )}
