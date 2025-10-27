@@ -3,6 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const LogInButton = () => {
   const { loginWithRedirect } = useAuth0();
+  const AUTH0_AUDIENCE = import.meta.env.VITE_AUTH0_AUDIENCE as string;
 
   return (
     <button className='login-button'
@@ -11,7 +12,7 @@ const LogInButton = () => {
           authorizationParams: {
             scope: 'read:courses',
             prompt: 'consent',
-            audience: import.meta.env.VITE_AUTH0_AUDIENCE as string,
+            audience: AUTH0_AUDIENCE,
           },
         })
       }
