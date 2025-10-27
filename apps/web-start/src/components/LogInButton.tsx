@@ -11,6 +11,7 @@ const LogInButton = () => {
           authorizationParams: {
             scope: 'read:courses',
             prompt: 'consent',
+            redirect_uri: `${window.location.origin}/home`,
           },
         })
       }
