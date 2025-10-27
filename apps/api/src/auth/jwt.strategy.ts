@@ -15,7 +15,7 @@ type JwtPayload = {
 };
 
 export interface JwtUser {
-  userId: string;
+  userId: number;
   provider: string;
   providerId: string;
   sub: string;
@@ -63,6 +63,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     if (!auth) {
       const user = await this.prisma.user.create({
         data: {
+          email:`${providerId}@${provider}.example.com`,
           authentications: {
             create: {
               provider,
