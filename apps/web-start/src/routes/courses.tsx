@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { backendFetcher, mutateBackend } from '../integrations/fetcher';
 import { CourseCreateIn, CourseUpdateIn, CourseOut } from '../../../../packages/api/src/index';
-
 export const Route = createFileRoute('/courses')({
   component: RouteComponent,
 });
@@ -59,6 +58,7 @@ function RouteComponent() {
       queryClient.invalidateQueries({ queryKey: ['courses'] });
       setShowModal(null);
       resetForm();
+      
     },
   });
 
