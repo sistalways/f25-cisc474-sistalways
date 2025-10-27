@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { useState } from 'react';
-import { useQueryClient } from '@tanstack/react-query';
 import { CourseCreateIn, CourseUpdateIn, CourseOut } from '../../../../packages/api/src/index';
 import { useRouter } from '@tanstack/react-router';
 import { useApiQuery, useApiMutation, useCurrentUser } from '../integrations/api';
@@ -11,7 +10,6 @@ export const Route = createFileRoute('/courses')({
 
 function RouteComponent() {
   const router = useRouter();
-  const queryClient = useQueryClient();
   const { data: user,error:isAuthPending } = useCurrentUser();
 
   // modal state
