@@ -21,6 +21,7 @@ model User{
   role      Role     @default(STUDENT)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  authentications                   Authentication[]
 
   Courses       Course[]     @relation("Course")
   enrollments   Enrollment[]
@@ -28,6 +29,17 @@ model User{
   grades        Grade[]
   messagesSent  Message[]    @relation("MessagesSent")
   messagesReceived Message[] @relation("MessagesReceived")
+}
+model Authentication {
+  id           Int      @id @default(autoincrement())
+  provider     String
+  providerId   String
+  user         User     @relation(fields: [userId], references: [id])
+  userId       Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([provider, providerId])
 }
 
 model Course {
