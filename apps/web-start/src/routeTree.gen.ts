@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as InboxRouteImport } from './routes/inbox'
+import { Route as HomeRouteImport } from './routes/home'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as CalendarRouteImport } from './routes/calendar'
@@ -24,6 +25,11 @@ const ProfileRoute = ProfileRouteImport.update({
 const InboxRoute = InboxRouteImport.update({
   id: '/inbox',
   path: '/inbox',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/calendar': typeof CalendarRoute
   '/courses': typeof CoursesRoute
   '/dashboard': typeof DashboardRoute
+  '/home': typeof HomeRoute
   '/inbox': typeof InboxRoute
   '/profile': typeof ProfileRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/calendar': typeof CalendarRoute
   '/courses': typeof CoursesRoute
   '/dashboard': typeof DashboardRoute
+  '/home': typeof HomeRoute
   '/inbox': typeof InboxRoute
   '/profile': typeof ProfileRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/calendar': typeof CalendarRoute
   '/courses': typeof CoursesRoute
   '/dashboard': typeof DashboardRoute
+  '/home': typeof HomeRoute
   '/inbox': typeof InboxRoute
   '/profile': typeof ProfileRoute
 }
@@ -79,16 +88,25 @@ export interface FileRouteTypes {
     | '/calendar'
     | '/courses'
     | '/dashboard'
+    | '/home'
     | '/inbox'
     | '/profile'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/calendar' | '/courses' | '/dashboard' | '/inbox' | '/profile'
+  to:
+    | '/'
+    | '/calendar'
+    | '/courses'
+    | '/dashboard'
+    | '/home'
+    | '/inbox'
+    | '/profile'
   id:
     | '__root__'
     | '/'
     | '/calendar'
     | '/courses'
     | '/dashboard'
+    | '/home'
     | '/inbox'
     | '/profile'
   fileRoutesById: FileRoutesById
@@ -98,6 +116,7 @@ export interface RootRouteChildren {
   CalendarRoute: typeof CalendarRoute
   CoursesRoute: typeof CoursesRoute
   DashboardRoute: typeof DashboardRoute
+  HomeRoute: typeof HomeRoute
   InboxRoute: typeof InboxRoute
   ProfileRoute: typeof ProfileRoute
 }
@@ -116,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/inbox'
       fullPath: '/inbox'
       preLoaderRoute: typeof InboxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -154,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   CalendarRoute: CalendarRoute,
   CoursesRoute: CoursesRoute,
   DashboardRoute: DashboardRoute,
+  HomeRoute: HomeRoute,
   InboxRoute: InboxRoute,
   ProfileRoute: ProfileRoute,
 }

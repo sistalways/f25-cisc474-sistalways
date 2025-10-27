@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { Link } from '@tanstack/react-router';
+import LogInButton from '../components/LogInButton';
 
 export const Route = createFileRoute('/')({
   component: RouteComponent,
@@ -18,12 +19,7 @@ function RouteComponent() {
       placeholder="Enter Password:" />
 
 
-      <Link 
-        href="/dashboard"
-        className="Login-Button"
-        aria-label="Login" to={'/dashboard'}      > 
-      Login
-      </Link>
+      <LogInButton /> 
   </form>
 </main>
 }
