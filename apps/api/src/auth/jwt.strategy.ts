@@ -63,7 +63,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     if (!auth) {
       const user = await this.prisma.user.create({
         data: {
-          authentication: {
+          authentications: {
             create: {
               provider,
               providerId,

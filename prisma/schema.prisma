@@ -21,7 +21,7 @@ model User{
   role      Role     @default(STUDENT)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  authentications                   Authentication[]
+  authentications Authentication[]
 
   Courses       Course[]     @relation("Course")
   enrollments   Enrollment[]
@@ -34,7 +34,7 @@ model Authentication {
   id           Int      @id @default(autoincrement())
   provider     String
   providerId   String
-  user         User     @relation(fields: [userId], references: [id])
+  user         User     @relation(fields: [userId], references: [id],onDelete: Cascade)
   userId       Int
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
