@@ -454,3 +454,22 @@ CSS
   background-color: #888; 
   color: white;
 }
+
+.Normal-Button {
+  display: block;
+  width: 13%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #9e3535; /* muted red */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 1px;
+  transition: 0.3s ease;
+}
+
+.Normal-Button:hover {
+  background-color: #975c5c;
+  cursor: pointer;
+}

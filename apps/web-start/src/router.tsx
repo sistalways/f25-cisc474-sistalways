@@ -26,7 +26,7 @@ export const getRouter = () => {
               cacheLocation="localstorage"
               useRefreshTokens={true}
               authorizationParams={{
-                redirect_uri: 'https://cisc474-ind-frontend.vjgcs.workers.dev/home',
+                redirect_uri: redirect_uri,
                 audience: import.meta.env.VITE_AUTH0_AUDIENCE as string,
               }}
             >

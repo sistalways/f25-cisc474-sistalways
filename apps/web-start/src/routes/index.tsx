@@ -8,18 +8,8 @@ export const Route = createFileRoute('/')({
 
 function RouteComponent() {
   return <main>
-  <h1>Login With Your Credentials </h1>
-  <form style={{display: "flex" ,alignItems: "center",flexDirection:"column"}}>
-      <input type="text"
-      className="LoginInp"
-      placeholder="Enter Username:" />
-
-      <input type="password"
-      className="LoginInp"
-      placeholder="Enter Password:" />
-
-
-      <LogInButton /> 
-  </form>
+  <h1>Login to view your courses</h1>
+    <LogInButton />
+      
 </main>
 }

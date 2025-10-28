@@ -14,10 +14,15 @@ function RouteComponent() {
 
   return (
     isAuthenticated && (
-      <div>
-        User Information: {JSON.stringify(user, null, 2)}.
-        <Link to="/courses">View Courses</Link>
-      </div>
+      <><div>
+              User Information: {JSON.stringify(user, null, 2)}.
+              <br></br>
+              <div className='Normal-Button'>
+                  <Link to="/courses">Click to View Courses</Link>
+              </div>
+          </div>
+          
+          </>
     )
   );
 }
