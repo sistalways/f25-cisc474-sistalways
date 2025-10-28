@@ -14,6 +14,8 @@ async function bootstrap() {
       'http://localhost:3000',
       'http://localhost:3001',
       process.env.VITE_BACKEND_URL ,
+      'https://cisc474-ind-frontend.vjgcs.workers.dev',
+      'https://f25-cisc474-sistalways.onrender.com',
     ],
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
