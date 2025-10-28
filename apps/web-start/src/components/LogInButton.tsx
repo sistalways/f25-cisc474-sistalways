@@ -12,7 +12,7 @@ const LogInButton = () => {
       onClick={() =>
         loginWithRedirect({
           authorizationParams: {
-            scope: 'read:course',
+            scope: 'read:courses',
             prompt: 'consent',
             audience: AUTH0_AUDIENCE,
           },

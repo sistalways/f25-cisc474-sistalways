@@ -26,7 +26,7 @@ export const getRouter = () => {
               cacheLocation="localstorage"
               useRefreshTokens={true}
               authorizationParams={{
-                redirect_uri: redirect_uri,
+                redirect_uri: 'http://localhost:3001/home',
                 audience: import.meta.env.VITE_AUTH0_AUDIENCE as string,
               }}
             >
