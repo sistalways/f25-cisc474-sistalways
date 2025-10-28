@@ -10,10 +10,10 @@ async function bootstrap() {
 
   app.enableCors({
     origin: [
-      frontendUrl,
+      process.env.FRONTEND_URL,
       'http://localhost:3000',
       'http://localhost:3001',
-      backendUrl,
+      process.env.VITE_BACKEND_URL ,
     ],
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     credentials: true,
