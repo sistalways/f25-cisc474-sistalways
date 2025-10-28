@@ -6,11 +6,13 @@ const LogInButton = () => {
   const AUTH0_AUDIENCE = import.meta.env.VITE_AUTH0_AUDIENCE as string;
 
   return (
-    <button className='login-button'
+    <button 
+    type='button'
+    className='login-button'
       onClick={() =>
         loginWithRedirect({
           authorizationParams: {
-            scope: 'read:courses',
+            scope: 'read:course',
             prompt: 'consent',
             audience: AUTH0_AUDIENCE,
           },

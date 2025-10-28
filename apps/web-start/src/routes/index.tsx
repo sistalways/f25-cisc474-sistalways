@@ -8,7 +8,7 @@ export const Route = createFileRoute('/')({
 
 function RouteComponent() {
   return <main>
-  <h1>Login With Your Credentials </h1>
+  <h1>Login With Your Credentials {window.location.origin} </h1>
   <form style={{display: "flex" ,alignItems: "center",flexDirection:"column"}}>
       <input type="text"
       className="LoginInp"

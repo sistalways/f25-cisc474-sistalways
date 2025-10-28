@@ -27,6 +27,7 @@ export const getRouter = () => {
               useRefreshTokens={true}
               authorizationParams={{
                 redirect_uri: redirect_uri,
+                audience: import.meta.env.VITE_AUTH0_AUDIENCE as string,
               }}
             >
           <TanstackQuery.Provider {...rqContext}>
